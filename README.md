@@ -5,8 +5,10 @@ Modbam ETL tools
 This script can output the fastq file and mm/ml tag information separately from the bam file. After mapping the output fastq file with any mapper, the process of merging mm/ml tag information is executed.
 
 # Installation
-## Install G-CAT ID Manager
+## Install Modbam ETL tools
 ```sh
+git clone https://github.com/ncc-ccat-gap/ModbamETLTools.git
+cd ModbamETLTools
 python setup.py install
 ```
 
