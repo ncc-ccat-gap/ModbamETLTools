@@ -41,6 +41,10 @@ def main():
     output_bam_hp2.close()
     output_bam_hp_none.close()
 
+    pysam.index(output_split_hp1_bam)
+    pysam.index(output_split_hp2_bam)
+    pysam.index(output_split_hp_none_bam)
+    
 def parse_option():
     parser = argparse.ArgumentParser(description='Export bam file split by HP tag')
     parser.add_argument('-i', '--input', help="Input bam file path.")
