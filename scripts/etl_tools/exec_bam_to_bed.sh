@@ -17,3 +17,7 @@ output_bed="${file_name}.bed"
   -t ${threads} \
   ${fasta_file} \
   ${input_bam} > ${output_bed}
+
+if [ $? -eq 0 ]; then
+    mv ./mod-counts.cpg.acc.bed ./${file_name}_mod-counts.cpg.acc.bed
+fi
