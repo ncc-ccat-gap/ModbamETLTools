@@ -8,16 +8,36 @@ This script can output the fastq file and mm/ml tag information separately from 
 
 # Setup
 ## Requirement
-* docker
+* Docker
 
 ## For use with Docker
-```sh
+```
 git clone https://github.com/ncc-ccat-gap/ModbamETLTools.git
 docker build ModbamETLTools/Dockerfile -t modbametltools:0.2.0
 docker run -it modbametltools:0.2.0 /bin/bash
 ```
  - When starting the container, please mount the input/output destination according to the environment.
  - If you also have a singularity environment, you can also create a .sif to use.
+
+## Without Docker 
+ - It can be used even if you do not have a Docker environment.
+ - In that case, please set up the following environment
+
+### Requirement
+ - Python 3.8.x
+ - pysam 0.20.0
+ - modbam2bed v0.6.3
+
+### setup
+```
+git clone https://github.com/ncc-ccat-gap/ModbamETLTools.git
+cd ModbamETLTools
+python setup.py install
+```
+### caution
+ - Usage#Bamtobed is a script created with the assumption that it will run in a Docker environment.
+    - The modbam2bed path in the <exec_bam_to_bed.sh> file should be rewritten according to your environment
+
 
 # Usage
 ## Export fastq and MM/ML tag info from bam
@@ -35,7 +55,7 @@ merge_tag -i <input_bam_file> -t <input_mm/ml_tag_file> -o [output_file_path] [-
 split_bam -i <input_bam_file> -o [output_file_path]
 ```
 
-## Bam to bed
+## Bamtobed
 ```
 cd ModbamETLTools/scripts/etl_tools
 bash exec_bam_to_bed.sh <input_bam_file> <fasta_file> <threads>
@@ -82,7 +102,7 @@ split_bam -i /home/user/BBBB_merge_tags_sorted.bam
  * BBBB_merge_HP_none.bam.bai
 
 
-### (4) (option)　Generate bed from bam.
+### (4) (option)Generate bed from bam.
 ```
 cd ModbamETLTools/scripts/etl_tools
 bash exec_bam_to_bed.sh /home/user/BBBB_merge_HP_none.bam /home/user/sample.fasta 8
