@@ -14,10 +14,11 @@ This script can output the fastq file and mm/ml tag information separately from 
 ```sh
 git clone https://github.com/ncc-ccat-gap/ModbamETLTools.git
 docker build ModbamETLTools/Dockerfile -t modbametltools:0.2.0
-docker run -it ModbamETLTools:0.2.0 /bin/bash
+docker run -it modbametltools:0.2.0 /bin/bash
 ```
  - When starting the container, please mount the input/output destination according to the environment.
  - If you also have a singularity environment, you can also create a .sif to use.
+
 # Usage
 ## Export fastq and MM/ML tag info from bam
 ```
@@ -83,6 +84,7 @@ split_bam -i /home/user/BBBB_merge_tags_sorted.bam
 
 ### (4) (option)　Generate bed from bam.
 ```
+cd ModbamETLTools/scripts/etl_tools
 bash exec_bam_to_bed.sh /home/user/BBBB_merge_HP_none.bam /home/user/sample.fasta 8
 ```
 
