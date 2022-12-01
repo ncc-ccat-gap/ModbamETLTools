@@ -35,7 +35,7 @@ cd ModbamETLTools
 python setup.py install
 ```
 ### caution
- - Usage#Bamtobed is a script created with the assumption that it will run in a Docker environment.
+ - [Usage#Bamtobed](#Bamtobed) is a script created with the assumption that it will run in a Docker environment.
     - The modbam2bed path in the <exec_bam_to_bed.sh> file should be rewritten according to your environment
 
 
